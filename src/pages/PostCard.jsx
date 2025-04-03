@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react";
 import CountContext from '../../contexts/CountContext';
 
 export default function PostCard() {
-  const { posts: posts } = useContext(CountContext);
+  const { posts } = useContext(CountContext);
   //product è la variabile che conterrà info del prodotto
   //setProduct cambia il valore di product
   //all'inizio il valore di product è null (nessun prodotto caricato inizialmente)
@@ -19,7 +19,7 @@ export default function PostCard() {
   const navigate = useNavigate();
 
 
-  useEffect(() => {
+/*   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then(res => res.json())
       //una volta ottenuti i dati, viene eseguita questa funzione
@@ -31,7 +31,7 @@ export default function PostCard() {
         console.log('ERROR', err);
       })
 
-  }, [])
+  }, []) */
 
   return (
     <>
