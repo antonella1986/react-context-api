@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react";
+import CountContext from '../../contexts/CountContext';
 
 export default function PostCard() {
+  const { posts: posts } = useContext(CountContext);
   //product è la variabile che conterrà info del prodotto
   //setProduct cambia il valore di product
   //all'inizio il valore di product è null (nessun prodotto caricato inizialmente)
-  const [post, setpost] = useState(null)
+  const [post, setPost] = useState(null)
   //con l'hook useParams ottengo l'id del prodotto dalla barra degli indirizzi
   const { id } = useParams()
   console.log(id);
@@ -22,7 +25,7 @@ export default function PostCard() {
       //una volta ottenuti i dati, viene eseguita questa funzione
       .then(data => {
         //aggiorno la variabile post con i dati ottenuti del prodotto 
-        setpost(data)
+        setPost(data)
       })
       .catch(err => {
         console.log('ERROR', err);
@@ -58,7 +61,6 @@ export default function PostCard() {
                         </button>
                         <h1>post: {post.title}</h1>
                         <p>{post.description}</p>
-                        <div className="price fw-bold fs-2">${post.price}</div>
                       </div>
                     </div>
                   </div>
