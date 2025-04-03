@@ -2,16 +2,16 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom";
 
 export default function PostsList() {
-  const [products, setProducts] = useState([])
+  const [posts, setposts] = useState([])
 
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts')
       .then(res => res.json())
       .then(data => {
         console.log(data);
 
-        setProducts(data)
+        setposts(data)
       })
   }, [])
 
@@ -22,9 +22,9 @@ export default function PostsList() {
       <main>
         <div className="p-5 mb-4 bg-light rounded-3">
           <div className="container-fluid py-5">
-            <h1 className="display-1 fw-bold">Our Products</h1>
+            <h1 className="display-1 fw-bold">Our posts</h1>
             <p className="col-md-8 fs-4">
-              Explore our wide range of products below. Find something you love and grab it now!
+              Explore our wide range of posts below. Find something you love and grab it now!
             </p>
           </div>
         </div>
@@ -32,18 +32,18 @@ export default function PostsList() {
         <section>
           <div className="container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
-              {products.map(product => (
-                <div className="col" key={product.id}>
+              {posts.map(post => (
+                <div className="col" key={post.id}>
                   <div className="card h-100">
-                    <NavLink to={`/products/${product.id}`}>
-                      <img src={product.image} className="card-img-top" alt={product.title}
+                    <NavLink to={`/posts/${post.id}`}>
+                      <img src={post.image} className="card-img-top" alt={post.title}
                         style={{ aspectRatio: 1, objectFit: 'cover' }} />
                     </NavLink>
                     <div className="card-body">
-                      <h5 className="card-title">{product.title}</h5>
-                      <p className="card-text">{product.price}</p>
-                      {/* Add a NavLink to navigate to the single product page */}
-                      <NavLink to={`/products/${product.id}`} className="btn btn-primary">
+                      <h5 className="card-title">{post.title}</h5>
+                      <p className="card-text">{post.price}</p>
+                      {/* Add a NavLink to navigate to the single post page */}
+                      <NavLink to={`/posts/${post.id}`} className="btn btn-primary">
                         Buy Now
                       </NavLink>
                     </div>

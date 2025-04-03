@@ -4,8 +4,7 @@ import CountContext from './contexts/CountContext';
 import DefaultLayout from './layout/DefaultLayout'
 //pagine
 import Home from './pages/Home'
-import Post from './pages/PostCard'
-import Product from './pages/Product'
+import PostCard from './pages/PostCard'
 import PostsList from './pages/PostsList'
 import NotFound from './pages/NotFound'
 
@@ -19,7 +18,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/postslist" element={<PostsList />} />
-            <Route path="/ostslist/:id" element={<PostCard />} />
+            <Route path="/postslist/:id" element={<PostCard />} />
             <Route path="/*" element={<NotFound />} />
           </Route>
         </Routes>
