@@ -5,7 +5,7 @@ const CountContext = createContext();
 export const CountProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
 
-  //recupero i post da un'API (o da una fonte locale)
+  //recupero i post dall'endpoint
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -14,6 +14,7 @@ export const CountProvider = ({ children }) => {
   }, []);
 
   return (
+    //passo la variabile posts al provider per poterla usare nelle pagine
     <CountContext.Provider value={{ posts }}>
       {children}
     </CountContext.Provider>

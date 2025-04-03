@@ -4,20 +4,21 @@ import { useContext } from "react";
 import CountContext from '../contexts/CountContext';
 
 export default function PostCard() {
+  //ottengo i post dal provider
   const { posts } = useContext(CountContext);
+  //con l'hook useParams ottengo l'id del prodotto dalla barra degli indirizzi
+  const { id } = useParams()
+  //questa funzione mi permette di navigare tra le pagine del sito senza ricaricarlo
+  //lo userò per creare un pulsante per andare alla pagina precedente
+  const navigate = useNavigate();
+  
   const post = posts.find((p) => p.id === parseInt(id));
 
   //product è la variabile che conterrà info del prodotto
   //setProduct cambia il valore di product
   //all'inizio il valore di product è null (nessun prodotto caricato inizialmente)
 /*   const [post, setPost] = useState(null) */
-  //con l'hook useParams ottengo l'id del prodotto dalla barra degli indirizzi
-  const { id } = useParams()
-  console.log(id);
 
-  //questa funzione mi permette di navigare tra le pagine del sito senza ricaricarlo
-  //lo userò per creare un pulsante per andare alla pagina precedente
-  const navigate = useNavigate();
 
 
 /*   useEffect(() => {
