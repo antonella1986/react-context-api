@@ -10,7 +10,6 @@ export default function Navbar() {
           <ul className="menu-dx">
               <li><NavLink className="nav-link" to={"/"}>Home</NavLink></li>
               <li><NavLink className="nav-link" to={"/PostsList"}>Posts</NavLink></li>
-              <li><NavLink className="nav-link" to={"/PostCard"}>Post card</NavLink></li>
           </ul>
       </div>
     );

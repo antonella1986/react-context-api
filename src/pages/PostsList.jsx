@@ -2,18 +2,7 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom";
 
 export default function PostsList() {
-  const [posts, setposts] = useState([])
 
-
-  useEffect(() => {
-    fetch('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-
-        setposts(data)
-      })
-  }, [])
 
 
   return (
@@ -24,7 +13,7 @@ export default function PostsList() {
           <div className="container-fluid py-5">
             <h1 className="display-1 fw-bold">Our posts</h1>
             <p className="col-md-8 fs-4">
-              Explore our wide range of posts below. Find something you love and grab it now!
+              Explore our wide range of posts below. Find something and read it!
             </p>
           </div>
         </div>
@@ -41,10 +30,9 @@ export default function PostsList() {
                     </NavLink>
                     <div className="card-body">
                       <h5 className="card-title">{post.title}</h5>
-                      <p className="card-text">{post.price}</p>
                       {/* Add a NavLink to navigate to the single post page */}
                       <NavLink to={`/posts/${post.id}`} className="btn btn-primary">
-                        Buy Now
+                        Read more
                       </NavLink>
                     </div>
                   </div>

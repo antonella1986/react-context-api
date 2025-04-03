@@ -6,20 +6,29 @@ import DefaultLayout from './layout/DefaultLayout'
 import Home from './pages/Home'
 import PostCard from './pages/PostCard'
 import PostsList from './pages/PostsList'
-import NotFound from './pages/NotFound'
 
 function App() {
+  const [posts, setposts] = useState([])
+
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setposts(data)
+      })
+  }, [])
 
   return (
     <>
-    <CountContext.Provider value={{ count: 1 }}>
+    <CountContext.Provider value={{ posts: posts }}>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/postslist" element={<PostsList />} />
             <Route path="/postslist/:id" element={<PostCard />} />
-            <Route path="/*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

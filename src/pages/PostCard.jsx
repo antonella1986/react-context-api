@@ -17,7 +17,7 @@ export default function PostCard() {
 
 
   useEffect(() => {
-    fetch(`https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts/${id}`)
+    fetch(`https://fakestoreapi.com/products/${id}`)
       .then(res => res.json())
       //una volta ottenuti i dati, viene eseguita questa funzione
       .then(data => {
