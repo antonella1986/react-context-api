@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react";
-import CountContext from '../../contexts/CountContext';
+import CountContext from '../contexts/CountContext';
 
 export default function PostCard() {
   const { posts } = useContext(CountContext);
