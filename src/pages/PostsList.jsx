@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { CountContext } from "../contexts/CountContext";
+import CountContext from "../contexts/CountContext";
 
 export default function PostsList() {
     const { posts } = useContext(CountContext);

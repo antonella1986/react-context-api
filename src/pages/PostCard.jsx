@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react";
@@ -6,10 +5,12 @@ import CountContext from '../../contexts/CountContext';
 
 export default function PostCard() {
   const { posts } = useContext(CountContext);
+  const post = posts.find((p) => p.id === parseInt(id));
+
   //product è la variabile che conterrà info del prodotto
   //setProduct cambia il valore di product
   //all'inizio il valore di product è null (nessun prodotto caricato inizialmente)
-  const [post, setPost] = useState(null)
+/*   const [post, setPost] = useState(null) */
   //con l'hook useParams ottengo l'id del prodotto dalla barra degli indirizzi
   const { id } = useParams()
   console.log(id);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import CountContext from './contexts/CountContext';
+import { CountProvider } from './contexts/CountContext';
 //layout
 import DefaultLayout from './layout/DefaultLayout'
 //pagine
@@ -12,17 +12,17 @@ function App() {
 
   return (
     <>
-    <CountContext.Provider>
+    <CountProvider>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/postslist" element={<PostsList />} />
-            <Route path="/postslist/:id" element={<PostCard />} />
+            <Route path="/posts/:id" element={<PostCard />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    </CountContext.Provider>
+    </CountProvider>
     </>
   )
 }
